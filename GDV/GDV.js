@@ -4,7 +4,7 @@
 
 define([], function() {
   
-  var GDV = Backbone.View.extend({
+  var GDV = {
 
     /* @Propriedade {Objeto} [visoes] Possui todas as referencias às visões existentes. 
      */
@@ -58,7 +58,7 @@ define([], function() {
       return this.visoes[nome];
     }
  
-  });
+  };
 
   return GDV;
 });
