@@ -10,7 +10,7 @@ define([
   
   var Aninhando = {
     
-    /* @Método [aninharColecao] Aninha uma coleção do backbone.
+    /* @Método [aninharColecao] oferece suporte a modelos e coleções aninhadas. 
      *
      * @Parametro {Modelo} [modelo] Uma instancia de um modelo.
      * @Parametro {Texto} [nomeDoAtributo] Nome do atributo do modelo onde a coleção aninhada está.
