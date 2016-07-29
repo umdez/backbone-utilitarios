@@ -5,9 +5,11 @@ cuidar destes dois casos sem mudar seus código existente.
 # Como usar
 Se na sua aplicação já desenvolvida, você estiver criando uma visão assim:
 
-    VisaoDoProduto = Backbone.View.extend({...});
-    VisaoDoProduto = new VisaoDoProduto({...});
-    $(this.el).append(VisaoDoProduto.render().el);
+```javascript
+var VisaoDoProduto = Backbone.View.extend({...});
+VisaoDoProduto = new VisaoDoProduto({...});
+$(this.el).append(VisaoDoProduto.render().el);
+```
 
 Este codigo, apesar de ser simples, vai criar uma 'visão zumbi', porque vai constantemente criar uma nova visão sem remover a
 visão prévia. Se você não é familiar com o termo 'visão zumbi', você pode ler uma excelente explicação aqui:
@@ -19,11 +21,13 @@ usando o laço for.
 Acho que a melhor maneira de limpar o código é fazendo isso antes de criar uma nova visão.Então, minha solução 
 foi criar um gerente de visões que ajude nessa limpeza.
 
-    VisaoDoProduto = Backbone.View.extend({…});
-    VisaoDoProduto = GDV.criarVisao("VisaoDoProduto", function() {
-      return new VisaoDoProduto({…});
-    });
-    $(this.el).append(VisaoDoProduto.render().el);
+```javascript
+var VisaoDoProduto = Backbone.View.extend({…});
+VisaoDoProduto = GDV.criarVisao("VisaoDoProduto", function() {
+  return new VisaoDoProduto({…});
+});
+$(this.el).append(VisaoDoProduto.render().el);
+```
 
 Usando essa pequena mudança, o GDV (Gerente de Visão) vai automaticamente olhar se já existe a visão VisaoDoProduto e, se 
 já for existente, o GDV vai limpar a visão para você antes de criar uma nova instância dessa visão.
@@ -31,11 +35,13 @@ já for existente, o GDV vai limpar a visão para você antes de criar uma nova 
 E se você tiver uma visão que raramente muda, (ex. visões que não possuem bind com nenhum modelo ou coleção), você pode
 considerar o reuso desta visão já existente, isso vai fazer seu aplicativo muito mais rápido. É só tentar fazer isso:
 
-    VisaoDoProduto = Backbone.View.extend({…});
-    VisaoDoProduto = GDV.reusarVisao("VisaoDoProduto", function() {
-      return new VisaoDoProduto({…});
-    });
-    $(this.el).append(VisaoDoProduto.render().el);
+```javascript
+var VisaoDoProduto = Backbone.View.extend({…});
+VisaoDoProduto = GDV.reusarVisao("VisaoDoProduto", function() {
+  return new VisaoDoProduto({…});
+});
+$(this.el).append(VisaoDoProduto.render().el);
+```
 
 Dá pra ver que a diferença entre o GDV.criarVisao e o GDV.reusarVisao é que, o reusarVisao vai procurar inicialmente por
 uma visão já existente com o nome de "VisaoDoProduto", se ele for encontrados ele é retornado pra você usar. Se não, ele vai
@@ -44,5 +50,6 @@ a visão já existente. Você deverá preferir o método criarVisao naquelas vis
 
 Alguma hora você só vai querer fechar uma visão existente. Nesse caso uma simples função é fornecida para isso:
 
-    GDV.fecharVisao("VisaoDoProduto");
-
+```javascript
+GDV.fecharVisao("VisaoDoProduto");
+```
