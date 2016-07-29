@@ -1,6 +1,6 @@
 'use strict';
 
-/* Um gerente para visões do BackBone. */
+/* Um gerente de visões para o BackBone. */
 
 define([], function() {
   
@@ -25,8 +25,8 @@ define([], function() {
         this.visoes[nome].off();
         
         // Se a visão possuir uma função para chamarmos depois da limpeza.
-        if (typeof this.visoes[nome].aoFechar === 'function') {
-          this.visoes[nome].aoFechar();
+        if (typeof this.visoes[nome].onClose === 'function') {
+          this.visoes[nome].onClose();
         }
       }
     },
@@ -34,7 +34,7 @@ define([], function() {
     /* @Método [criarVisao] Sempre limpa uma visão existente antes de criar uma nova visão. 
      *
      * @Parametro {Texto} [nome] O nome de uma visão a ser fechada.
-     * @Parametro {Função} [cd] Chamada depois para retornar nova instância da nova visão.
+     * @Parametro {Função} [cd] Chamada depois para retornar uma instância da nova visão.
      */
     criarVisao: function(nome, cd) {
       this.fecharVisao(nome);
@@ -45,7 +45,7 @@ define([], function() {
     /* @Método [reusarVisao] Sempre retorna uma visão existente ou chamará cd() para criar uma nova.
      *
      * @Parametro {Texto} [nome] O nome de uma visão a ser reusada ou criada.
-     * @Parametro {Função} [cd] Chamada depois para retornar nova instância da nova visão.
+     * @Parametro {Função} [cd] Chamada depois para retornar uma instância da nova visão.
      * @Retorna {Visão} Uma visão existente ou uma nova.
      */
     reusarVisao: function(nome, cd) {
