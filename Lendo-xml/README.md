@@ -23,6 +23,6 @@ var algunsArquivos = [
 ];
 
 LerXML.ler(umaLista, umDiretorio, algunsArquivos, function() {
-  console.log('Arquivos de templantesforam carregados com sucesso!');
+  console.log('Arquivos de templantes foram carregados com sucesso!');
 });
 ```
