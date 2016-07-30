@@ -16,7 +16,7 @@ define([
      * Faz a leitura de determinados arquivos em XML no diretório informado. 
      * Logo depois salva cada uma delas na lista informada.
      *
-     * @Parametro {Matriz} [lista] Uma lista onde os arquivos serão amazenados.
+     * @Parametro {Objeto} [lista] Uma lista onde os arquivos serão amazenados.
      * @Parametro {Texto} [diretorio] O nome do diretorio onde serão lidos os arquivos.
      * @Parametro {Matriz} [arquivos] Contêm lista com os nomes de cada aquivo a ser lido.
      * @Parametro {Função} [cd] Ao terminar nós chamamos está função fornecida.
