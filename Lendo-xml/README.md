@@ -14,7 +14,7 @@ var umaLista = {
 , 'templante04.html': { template: null }
 };
 
-var umDiretorio = 'local/onde/os/arquivos/se/encontram/';
+var umDiretorio = '/o/local/onde/os/arquivos/se/encontram/';
 
 var algunsArquivos = [
   'templante01.html'
@@ -23,6 +23,6 @@ var algunsArquivos = [
 ];
 
 LerXML.ler(umaLista, umDiretorio, algunsArquivos, function() {
-  console.log('Arquivos foram carregados com sucesso!');
+  console.log('Arquivos de templantesforam carregados com sucesso!');
 });
 ```
