@@ -8,10 +8,10 @@ Por causa disso, eu acho importante adicionar este BoilerPlate para utilizar pos
 
 ```javascript
 var umaLista = {
-  'templante01.html': null
-, 'templante02.html': null
-, 'templante03.html': null
-, 'templante04.html': null
+  'templante01.html': { template: null }
+, 'templante02.html': { template: null }
+, 'templante03.html': { template: null }
+, 'templante04.html': { template: null }
 };
 
 var umDiretorio = 'local/onde/os/arquivos/se/encontram/';
