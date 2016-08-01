@@ -45,9 +45,9 @@ define([
           colecoesAninhadas = modelo['colecoesAninhadas'];
         }
         
-        deferidos = _.reduce(colecoesAninhadas, function(lista, umaColecaoAninhada) {
+        deferidos = _.reduce(colecoesAninhadas, function(listaDeDeferidos, umaColecaoAninhada) {
           if (modelo && modelo[umaColecaoAninhada] !== undefined) {  
-            lista.push(function() {
+            listaDeDeferidos.push(function() {
               modelo[umaColecaoAninhada].fetch({
                 async: false, error: function(colecao, resp, opcs){
                   console.log('Não foi possível carregar a coleção '+ umaColecaoAninhada + ' do modelo ' + modelo.id); 
@@ -57,7 +57,7 @@ define([
           } else {
             console.log('A coleção ' + umaColecaoAninhada + ' não foi encontrada');
           }
-          return lista;
+          return listaDeDeferidos;
         }, deferidos, this);
       });
       
