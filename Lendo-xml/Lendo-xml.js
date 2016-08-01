@@ -24,15 +24,16 @@ define([
     ler: function(lista, diretorio, arquivos, cd) {
       var deferidos = [];
       
-      $.each(arquivos, function(indice, arquivo) {
+      deferidos = _.reduce(arquivos, function(listaDeDeferidos, arquivo) {
         if (lista[arquivo]) {
-          deferidos.push($.get(diretorio + arquivo, function(dados) {
+          listaDeDeferidos.push($.get(diretorio + arquivo, function(dados) {
             lista[arquivo].template = _.template(dados);
           }));
         } else {
-          console.log(arquivo + ' não foi encontrado');
+           console.log(arquivo + ' não foi encontrado');
         }
-      });
+        return listaDeDeferidos;
+      }, deferidos, this);
 
       $.when.apply(null, deferidos).done(cd);
     }

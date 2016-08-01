@@ -46,7 +46,6 @@ define([
         }
         
         deferidos = _.reduce(colecoesAninhadas, function(lista, umaColecaoAninhada) {
-          
           if (modelo && modelo[umaColecaoAninhada] !== undefined) {  
             lista.push(function() {
               modelo[umaColecaoAninhada].fetch({
