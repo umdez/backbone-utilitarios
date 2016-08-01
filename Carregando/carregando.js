@@ -59,7 +59,7 @@ define([
             console.log('A coleção ' + umaColecaoAninhada + ' não foi encontrada');
           }
           return lista;
-        }, [], this);
+        }, deferidos, this);
       });
       
       $.when.apply(null, deferidos).done(cd);
