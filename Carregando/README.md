@@ -12,12 +12,12 @@ var ModeloDeExame = Backbone.Model.extend({
   
     // Ok. agora nós só precisamos adicionar uma referencia para sabermos quais coleções nós temos.
     // A partir de agora, nós conseguimos saber quais coleções serão necessárias carregar.
-    colecaoAninhada.adicionar(this, ['exameOrientacoes']);
+    colecaoAninhada.adicionar(this, ['orientacoesDeExames']);
   
-    this.exameOrientacoes = new ColecaoDeOrientacaoDeExames();
+    this.orientacoesDeExames = new ColecaoDeOrientacaoDeExames();
   
     // Adicionamos aqui o endereço onde iremos carregar as nossas orientações dos exames.
-    this.exameOrientacoes.url = '/exames/' + this.id + '/ExameOrientacoes';
+    this.orientacoesDeExames.url = '/exames/' + this.id + '/OrientacoesDeExames';
   }
 });
 
