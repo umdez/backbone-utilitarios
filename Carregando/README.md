@@ -19,7 +19,7 @@ var ModeloDeExame = Backbone.Model.extend({
   }
 });
 
-var ColecaoDeExames = Backbone.PageableCollection.extend({
+var ColecaoDeExames = Backbone.Collection.extend({
 
   model: ModeloDeExame
 });
