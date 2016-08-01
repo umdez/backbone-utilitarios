@@ -13,7 +13,6 @@ define([
   var CarregarColecao = {
     
     /* @Método carregar(). 
-     *
      * Faz carregar toda uma coleção e também as coleções dos seus modelos.
      *
      * @Parametro {Coleção} [colecao] Uma coleção de modelos.
@@ -35,11 +34,13 @@ define([
           if (modelo && modelo[umaColecaoAninhada] !== undefined) {  
             lista.push(function() {
               modelo[umaColecaoAninhada].fetch({
-                  async: false, error: function(colecao, resp, opcs){ 
-                  console.log('Não foi possível carregar a coleção ('+ umaColecaoAninhada + ') do modelo ' + modelo.id); 
+                async: false, error: function(colecao, resp, opcs){
+                  console.log('Não foi possível carregar a coleção '+ umaColecaoAninhada + ' do modelo ' + modelo.id); 
                 }
               }); 
             });
+          } else {
+            console.log('A coleção ' + umaColecaoAninhada + ' não foi encontrada');
           }
           return lista;
         }, [], this);
