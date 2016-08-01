@@ -39,3 +39,13 @@ colecaoAninhada.carregar(colecaoDeExames, false, function() {
   // Ok! nossas coleções foram carregadas e já podem ser utilizadas!
 });
 ```
+
+E caso você queira carregar somente algumas coleções em específico.
+
+```javascript
+var colecaoDeExames = new ColecaoDeExames();
+
+colecaoAninhada.carregar(colecaoDeExames, ['colecao1', 'colecao2', ...], function() {
+  // Ok! aqui as coleções especificadas já estão carregadas!
+});
+```
