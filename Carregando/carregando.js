@@ -10,7 +10,19 @@ define([
 , _
 ) {
   
-  var CarregarColecao = {
+  var colecaoAninhada = {
+    
+    /* @Método adicionar(). 
+     * Uma forma simples de adicionar as coleções aninhadas de um modelo.
+     *
+     * @Parametro {Modelo} [modelo] O modelo onde iremos adicionar o nome das coleções aninhadas.
+     * @Parametro {Matriz} [colecoesAninhadas] Aquelas coleções aninhadas aos modelos de uma coleção.
+     * @Retorna {Matriz} Contendo os nomes das coleções aninhadas ao modelo.
+     */
+    adicionar: function(modelo, colecoesAninhadas) {
+      modelo['colecoesAninhadas'] = colecoesAninhadas;
+      return modelo['colecoesAninhadas'];
+    },
     
     /* @Método carregar(). 
      * Faz carregar toda uma coleção e também as coleções dos seus modelos.
@@ -28,6 +40,10 @@ define([
       }
       
       _.each(colecao.models, function(modelo) {
+        
+        if (!colecoesAninhadas) {
+          colecoesAninhadas = modelo['colecoesAninhadas'];
+        }
         
         deferidos = _.reduce(colecoesAninhadas, function(lista, umaColecaoAninhada) {
           
@@ -50,5 +66,5 @@ define([
     }
   };
   
-  return CarregarColecao;
+  return colecaoAninhada;
 });
