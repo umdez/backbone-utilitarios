@@ -1,6 +1,4 @@
-'use strict';
-
-/* Oferece um suporte b·sico para realizar o carregamento de arquivos contendo XML */
+/* Oferece um suporte b√°sico para realizar o carregamento de arquivos contendo XML */
 
 define([
   'jquery'
@@ -9,17 +7,18 @@ define([
   $
 , _
 ) {
-  
+  'use strict';
+
   var LerXML = {
     
-    /* @MÈtodo ler(). 
-     * Faz a leitura de determinados arquivos em XML no diretÛrio informado. 
+    /* @M√©todo ler(). 
+     * Faz a leitura de determinados arquivos em XML no diret√≥rio informado. 
      * Logo depois salva cada uma delas na lista informada.
      *
-     * @Parametro {Objeto} [lista] Uma lista onde os arquivos ser„o amazenados.
-     * @Parametro {Texto} [diretorio] O nome do diretorio onde ser„o lidos os arquivos.
-     * @Parametro {Matriz} [arquivos] ContÍm lista com os nomes de cada aquivo a ser lido.
-     * @Parametro {FunÁ„o} [cd] Ao terminar nÛs chamamos est· funÁ„o fornecida.
+     * @Parametro {Objeto} [lista] Uma lista onde os arquivos ser√£o amazenados.
+     * @Parametro {Texto} [diretorio] O nome do diretorio onde ser√£o lidos os arquivos.
+     * @Parametro {Matriz} [arquivos] Cont√™m lista com os nomes de cada aquivo a ser lido.
+     * @Parametro {Fun√ß√£o} [cd] Ao terminar n√≥s chamamos esta fun√ß√£o fornecida.
      */
     ler: function(lista, diretorio, arquivos, cd) {
       var deferidos = [];
@@ -30,7 +29,7 @@ define([
             lista[arquivo].template = _.template(dados);
           }));
         } else {
-           console.log(arquivo + ' n„o foi encontrado');
+           console.log(arquivo + ' n√£o foi encontrado');
         }
         return listaDeDeferidos;
       }, deferidos, this);

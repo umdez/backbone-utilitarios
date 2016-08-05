@@ -1,5 +1,3 @@
-'use strict';
-
 /* Oferece suporte básico para modelos e coleções aninhados. */
 
 define([
@@ -7,6 +5,7 @@ define([
 ], function(
   _
 ) {
+  'use strict';
   
   var Aninhando = {
     

@@ -1,6 +1,4 @@
-'use strict';
-
-/* Oferece um suporte básico para realizar o carregamento de coleções. */
+/* Oferece um suporte bÃ¡sico para realizar o carregamento de coleÃ§Ãµes. */
 
 define([
   'jquery'
@@ -9,27 +7,28 @@ define([
   $
 , _
 ) {
-  
+  'use strict';
+
   var colecaoAninhada = {
     
-    /* @Método adicionar(). 
-     * Uma forma simples de adicionar as coleções aninhadas de um modelo.
+    /* @MÃ©todo adicionar(). 
+     * Uma forma simples de adicionar as coleÃ§Ãµes aninhadas de um modelo.
      *
-     * @Parametro {Modelo} [modelo] O modelo onde iremos adicionar o nome das coleções aninhadas.
-     * @Parametro {Matriz} [colecoesAninhadas] Aquelas coleções aninhadas aos modelos de uma coleção.
-     * @Retorna {Matriz} Contendo os nomes das coleções aninhadas ao modelo.
+     * @Parametro {Modelo} [modelo] O modelo onde iremos adicionar o nome das coleÃ§Ãµes aninhadas.
+     * @Parametro {Matriz} [colecoesAninhadas] Aquelas coleÃ§Ãµes aninhadas aos modelos de uma coleÃ§Ã£o.
+     * @Retorna {Matriz} Contendo os nomes das coleÃ§Ãµes aninhadas ao modelo.
      */
     adicionar: function(modelo, colecoesAninhadas) {
       modelo['colecoesAninhadas'] = colecoesAninhadas;
       return modelo['colecoesAninhadas'];
     },
     
-    /* @Método carregar(). 
-     * Faz carregar toda uma coleção e também as coleções dos seus modelos.
+    /* @MÃ©todo carregar(). 
+     * Faz carregar toda uma coleÃ§Ã£o e tambÃ©m as coleÃ§Ãµes dos seus modelos.
      *
-     * @Parametro {Coleção} [colecao] Uma coleção de modelos.
-     * @Parametro {Matriz} [colecoesAninhadas] Aquelas coleções aninhadas aos modelos de uma coleção.
-     * @Parametro {Função} [cd] Será chamada quando se estiver carregado todas colecoes aninhadas.
+     * @Parametro {ColeÃ§Ã£o} [colecao] Uma coleÃ§Ã£o de modelos.
+     * @Parametro {Matriz} [colecoesAninhadas] Aquelas coleÃ§Ãµes aninhadas aos modelos de uma coleÃ§Ã£o.
+     * @Parametro {FunÃ§Ã£o} [cd] SerÃ¡ chamada quando se estiver carregado todas colecoes aninhadas.
      */
     carregar: function(colecao, colecoesAninhadas, cd) { 
       
@@ -50,12 +49,12 @@ define([
             listaDeDeferidos.push(function() {
               modelo[umaColecaoAninhada].fetch({
                 async: false, error: function(colecao, resp, opcs){
-                  console.log('Não foi possível carregar a coleção '+ umaColecaoAninhada + ' do modelo ' + modelo.id); 
+                  console.log('NÃ£o foi possivel carregar a coleÃ§Ã£o '+ umaColecaoAninhada + ' do modelo ' + modelo.id); 
                 }
               }); 
             });
           } else {
-            console.log('A coleção ' + umaColecaoAninhada + ' não foi encontrada');
+            console.log('A coleÃ§Ã£o ' + umaColecaoAninhada + ' nÃ£o foi encontrada');
           }
           return listaDeDeferidos;
         }, deferidos, this);

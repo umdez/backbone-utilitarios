@@ -1,9 +1,8 @@
-'use strict';
-
 /* Um gerente de visões para o BackBone. */
 
 define([], function() {
-  
+  'use strict';
+
   var GDV = {
 
     /* @Propriedade {Objeto} [visoes] Possui todas as referencias às visões existentes. 
