@@ -3,7 +3,7 @@ e elegante realizarmos esta tarefa.
 
 # O problema
 
-Imagine por um momento que tenhamos um modelo de 'Exames' ficticio. Este modelo possui uma coleção aninhada chamada 'exameOrientacoes'.
+Imagine por um momento que tenhamos um modelo de 'Exames' ficticio. Este modelo possui uma coleção aninhada chamada 'orientacoesDeExames'.
 
 ```javascript
 var ModeloDeExame = Backbone.Model.extend({
