@@ -20,7 +20,14 @@ define([
   // anterior, uma padrão e uma posterior.
   _.extend(Backbone.Router.prototype, {
 
+    // adc nosso registrador
     registrador: sop,
+
+    // adic. nosso filtro anterior
+    anterior: sop,
+
+    // adc nosso filtro posterior
+    posterior: sop,
 
     // Re-escreve o método Backbone.Router.prototype.route, que é o método
     // publico utilizado para a adição de rotas na instancia do roteador, e tbm
@@ -41,13 +48,52 @@ define([
 
         // Registramos aqui cada rota acessada e também seus argumentos.
         if (this.registrador) {
-          this.registrador.apply(this, [rota, _.toArray(arguments)]);
+          this.registrador.apply(this, [rota, nome, _.toArray(arguments)]);
         } 
+
+        var cdArgs = [ rota, nome, _.toArray(arguments) ];
+        var anteriorCd;
+
+        if (_.isFunction(this.anterior)) {
+          // Se for apenas uma função, então chamar ela com argumentos
+          anteriorCd = this.anterior;
+        } else if (typeof this.anterior[rota] !== "undefined") {
+          // Caso contrário, procura pelo Chamar Denovo (cd) apropriado para o
+          // nome desta rota e a chama.
+          anteriorCd = this.anterior[rota];
+        } else {
+          // Caso contrário, se a gente possui um conjunto de rotas, mas não uma
+          // rota anterior para essa rota, apenas chamamos o sop
+          anteriorCd = sop;
+        }
+
+        // Se der erro e retornar falso então não iremos seguir em frente.
+        if (anteriorCd.apply(this, cdArgs) === false) {
+          return;
+        }
 
         // Se a função Chamar Denovo existir, então chama ela. 
         if(cd) {
           cd.apply(this, arguments);
         }
+
+        var posteriorCd;
+
+        if (_.isFunction(this.posterior)) {
+          // Se for apenas uma função, então chamar ela com argumentos
+          posteriorCd = this.posterior;
+        } else if (typeof this.posterior[rota] !== "undefined") {
+          // Caso contrário, procura pelo Chamar Denovo (cd) apropriado para o
+          // nome desta rota e a chama.
+          posteriorCd = this.posterior[rota];
+        } else {
+          // Caso contrário, se a gente possui um conjunto de rotas, mas não uma
+          // rota anterior para essa rota, apenas chamamos o sop
+          posteriorCd = sop;
+        }
+
+        // Se der erro e retornar falso então não iremos seguir em frente.
+        posteriorCd.apply(this, cdArgs);
 
       }, this);
 
