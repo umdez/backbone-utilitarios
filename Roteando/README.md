@@ -1,0 +1,1 @@
+Adiciona caracteristica de registro do roteador do Backbone. 

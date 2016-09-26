@@ -5,3 +5,4 @@ Utilitários diversos para estender as funções do BackBone.js
 - [Aninhando modelos e coleções](https://github.com/umdez/backbone-utilitarios/tree/master/Aninhando)
 - [Ler arquivos XML](https://github.com/umdez/backbone-utilitarios/tree/master/Lendo-xml)
 - [Carregar coleções aninhadas](https://github.com/umdez/backbone-utilitarios/tree/master/Carregando)
+- [Registro do roteador](https://github.com/umdez/backbone-utilitarios/tree/master/Roteando)
