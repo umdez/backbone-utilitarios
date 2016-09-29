@@ -90,18 +90,22 @@ Um exemplo simples para iniciar a utilização do Roteando é informada a seguir
 var UmRoteadorQualquer = new Backbone.Router.extend({ });
 
 var Controlador = {
+  nome: 'UmNomeUnicoParaEstasRotas',
+
   iniciar: function() {
-    _.bindAll(this, 'suporteAnterior', 'suporteDeLeitura', 'suportePosterior');
+    _.bindAll(this, 'suporteDeLeitura');
 
     // Aqui adicionamos a rota anterior e posterior a um suporte qualquer. 
-    UmRoteadorQualquer.adcRotaAnterior('UsuariosLeitura/:idUsuario', this.suporteAnterior);
+    UmRoteadorQualquer.anterior = {
+      'UsuariosLeitura/:idUsuario': function(idUsuario) { ... }
+    }
     UmRoteadorQualquer.adcRota('UsuariosLeitura/:idUsuario', this.nome, this.suporteDeLeitura);
-    UmRoteadorQualquer.adcRotaPosterior('UsuariosLeitura/:idUsuario', this.suportePosterior);
+    UmRoteadorQualquer.posterior = {
+      'UsuariosLeitura/:idUsuario': function(idUsuario) { ... }
+    );
   },
 
-  suporteAnterior: function() { ... },
-  suporteDeLeitura: function() { ... },
-  suportePosterior: function() { ... }
+  suporteDeLeitura: function(idUsuario) { ... }
 };
 
 ```
