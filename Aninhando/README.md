@@ -67,3 +67,8 @@ Existem diversos outros projetos interessantes e eu listo alguns abaixo:
 - https://github.com/afeld/backbone-nested
 - https://github.com/PaulUithol/Backbone-relational
 - https://github.com/powmedia/backbone-deep-model
+
+# Creditos
+
+- Todos aqueles que contribuiram com o projeto [nestCollection](https://gist.github.com/geddski/1610397). Pois ele foi uma fonte de inspiração.
+- Todos os contribuidores da Devowly Sistemas.
