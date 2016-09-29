@@ -95,17 +95,26 @@ var Controlador = {
   iniciar: function() {
     _.bindAll(this, 'suporteDeLeitura');
 
-    // Aqui adicionamos a rota anterior e posterior a um suporte qualquer. 
+    // Aqui adicionamos a rota anterior a um suporte especifico qualquer. 
     UmRoteadorQualquer.anterior = {
       'UsuariosLeitura/:idUsuario': function(idUsuario) { ... }
     }
-    UmRoteadorQualquer.adcRota('UsuariosLeitura/:idUsuario', this.nome, this.suporteDeLeitura);
+    
+    // Exemplo de uma rota especifica de dois níveis
+    UmRoteadorQualquer.route('UsuariosLeitura/:idUsuario', this.nome, this.suporteDeLeitura);
+
+    // Um exemplo de uma rota especifica com três niveis
+    UmRoteadorQualquer.route('UsuariosLeitura/:idUsuario/aba/:nome', this.nome, this.suporteDeLeitura);
+
+    // Aqui adicionamos a rota posterior a um suporte especifico qualquer. 
     UmRoteadorQualquer.posterior = {
       'UsuariosLeitura/:idUsuario': function(idUsuario) { ... }
     );
   },
 
-  suporteDeLeitura: function(idUsuario) { ... }
+  suporteDeLeitura: function(idUsuario, aba) { 
+    // Aqui adicionamos tudo que for necessário para este suporte da rota #UsuariosLeitura ...
+  }
 };
 
 ```
