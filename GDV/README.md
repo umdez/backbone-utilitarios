@@ -53,3 +53,7 @@ Alguma hora você só vai querer fechar uma visão existente. Nesse caso uma sim
 ```javascript
 GDV.fecharVisao("VisaoDoProduto");
 ```
+
+# Créditos
+- Todos aqueles que contribuiram para a criação do [VM](https://github.com/thomasdao/Backbone-View-Manager). Pois ele foi uma fonte de inspiração.
+- Todos os contribuidores da Devowly Sistemas.
